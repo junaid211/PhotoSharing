@@ -10,7 +10,39 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130723104424) do
+ActiveRecord::Schema.define(:version => 20130815110742) do
+
+  create_table "grops", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "groups", :force => true do |t|
+    t.string   "group_name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+  end
+
+  create_table "groups_users", :force => true do |t|
+    t.integer "user_id"
+    t.integer "group_id"
+  end
+
+  create_table "images", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "image"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "memberships", :force => true do |t|
+    t.string   "group_name"
+    t.integer  "group_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -19,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20130723104424) do
     t.text     "hobbies"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "image"
   end
 
 end

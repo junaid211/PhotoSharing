@@ -1,5 +1,7 @@
 <h2>New User</h2>
-<%= form_for :user , :url => users_path do |f| %>
+<%= form_for @user , :url => users_path do |f| %>
+    <%= @user.errors.full_messages.to_sentence if @user.errors.any? %>
+
     <p>
       <%= f.label :name %><br>
       <%=f.text_field :name %>
@@ -24,4 +26,4 @@
       <%= f.submit %>
     </p>
 <% end %>
-<%= link_to 'Back', users_path %>
+<p><%= link_to 'Back', users_path %></p>

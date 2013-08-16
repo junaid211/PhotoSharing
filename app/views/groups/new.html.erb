@@ -1,0 +1,17 @@
+<%= current_user.name %>
+<h3>Create Group</h3>
+
+<%= form_for @group ,:url => groups_path do |f| %>
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :group_name %>
+    </p>
+    <p>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+
+    </p>
+    <p>
+      <%= f.submit%>
+    </p>
+<% end %>
+<p><%= link_to'back', users_path %></p>

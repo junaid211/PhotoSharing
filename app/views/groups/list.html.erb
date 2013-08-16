@@ -1,0 +1,13 @@
+<%= current_user.name %>
+
+<% if @users.blank? %>
+    <p>There are not any users currently in the system.</p>
+<% else %>
+    <p>These are the current users you can add </p>
+    <ul id="users">
+      <% @users.each do |c| %>
+          <li><%= link_to c.name -%></li>
+          <%= link_to "Add", add_user_group_path(c) , :remote => true %>
+      <% end %>
+    </ul>
+<% end %>

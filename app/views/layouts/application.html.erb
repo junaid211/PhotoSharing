@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<%= javascript_include_tag :defaults %>
 <head>
    <title>Fun</title>
     <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -7,16 +8,45 @@
     <%= csrf_meta_tags %>
 </head>
 <body>
-<div id="header" style="">
-  <h1 style="margin-bottom:0;"><font color="#990000">Flicker 1.1</font></h1></div>
+<ul id="menu-bar">
+  <li class="active"><a href="#">Home</a></li>
+  <li><a href="#">Products</a>
+    <ul>
+      <li><a href="#">Products Sub Menu 1</a></li>
+      <li><a href="#">Products Sub Menu 2</a></li>
+      <li><a href="#">Products Sub Menu 3</a></li>
+      <li><a href="#">Products Sub Menu 4</a></li>
+    </ul>
+  </li>
+  <li><a href="#">Services</a>
+    <ul>
+      <li><a href="#">Services Sub Menu 1</a></li>
+      <li><a href="#">Services Sub Menu 2</a></li>
+      <li><a href="#">Services Sub Menu 3</a></li>
+      <li><a href="#">Services Sub Menu 4</a></li>
+    </ul>
+  </li>
+  <li><a href="#">About</a></li>
+  <li><a href="#">Contact Us</a></li>
+</ul>
+
+<div id="header">
+
+
+  <h1 style="margin-bottom:0;"><font color="#990000">Creative Photo Sharing</font></h1></div>
 
 <div id="content" style="height:700px;width:1000px;float:left;">
+
   <%= yield %></div>
 
+<!--<div style="width:155px; height:115px;">
+
+  <a href="#"><img class="enlarge" src="Wallpaper.jpg" alt="PZ3 demo #2" title=""></a>
+</div>-->
 
 
-<div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
-  Copyright © Flicker</div>
+
+
 
 </body>
 </html>

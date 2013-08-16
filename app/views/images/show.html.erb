@@ -1,0 +1,18 @@
+<%= current_user.name %>
+<div style="float:right">
+  <p><%= button_to 'Homepage' , users_path%></p>
+</div>
+
+<% if @images.blank? %>
+    <p>You have uploaded no images yet.</p>
+<% else %>
+    <p>These are your uploaded images</p>
+    <ul id="images">
+      <% @images.each do |c| %>
+          <li><%= c.image -%></li>
+
+          <p><%=image_tag  c.image_url(:thumb).to_s if current_user %></p>
+      <% end %>
+    </ul>
+<% end %>
+

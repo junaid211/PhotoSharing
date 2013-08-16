@@ -1,0 +1,25 @@
+<%= current_user.name %>
+<h3>
+  New Image
+</h3>
+
+<%= form_for :image, :as => @image, :url => { :action => "create" }, :html => {:multipart => true} do |f| %>
+    <p>
+      <%= f.file_field :image %>
+    </p>
+    <p>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+
+    </p>
+    <p>
+      <%= f.submit value='upload'%>
+    </p>
+<% end %>
+<p>
+
+  <%= link_to 'View uploaded images', image_path(current_user.id) %>
+</p>
+
+<!--<div id="content" style="height:200px;width:400px;float:left;">
+  <%= image_tag current_user.image_url(:thumb).to_s if current_user %>
+</div>-->

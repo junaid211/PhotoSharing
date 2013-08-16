@@ -1,2 +1,38 @@
-<h4>Welcome to flicker</h4>
-<%= @user.name %>
+<h4>Welcome to Creative Photo Sharing</h4>
+<%= current_user.name %>
+
+<h3>Upload/Change your Profile Image</h3>
+<div style="float:right">
+<p><%= button_to 'log out' ,{:controller=>"sessions", :action=>"logout"}%></p>
+</div>
+<div id="content" style="height:200px;width:400px;float:left;">
+  <%= image_tag current_user.image_url(:thumb).to_s if current_user %>
+</div>
+
+<%= form_for @user, :html => {:multipart => true} do |f| %>
+<p>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</p>
+<p>
+  <%= f.file_field :image %>
+</p>
+<p>
+  <%= f.submit value='upload'%>
+</p>
+<% end %>
+<!--<div id="content" style="height:200px;width:400px;float:left;">
+  <%= image_tag current_user.image_url(:thumb).to_s if current_user %>
+</div>-->
+ <p><div style="float:right">
+<p><%= link_to 'Create group', new_group_path %></p>  <br>
+<p><%= link_to 'View Groups' , user_groups_groups_path %> </p> <br>
+<p><%= link_to 'Upload Photos' , new_image_path %> </p>
+  </div></p>
+
+<%#= image_tag current_user.image.to_s if current_user %>
+
+
+
+
+

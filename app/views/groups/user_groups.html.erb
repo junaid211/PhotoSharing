@@ -1,0 +1,13 @@
+<%= current_user.name %>
+
+<% if @groups.blank? %>
+    <p>You have created no groups so far.</p>
+<% else %>
+    <p>These are the groups you have created</p>
+    <ul id="groups">
+      <% @groups.each do |c| %>
+          <li><%= c.group_name -%></li>
+          <p><%= button_to 'Add People ' , list_groups_path%></p>
+      <% end %>
+    </ul>
+<% end %>

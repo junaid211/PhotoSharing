@@ -1,28 +1,15 @@
-<body background="sun.jpg">
-<marquee><img src="image.gif" /></marquee>
-<br>
+
+<!--<marquee><img src="image.gif" /></marquee>-->
 
 <div  style="clear:both;text-align:center;">
-  <strong>Welcome to flicker</strong></div>
+  <strong>Welcome to Creative Photo Sharing</strong></div>
 
 
-<%= form_for :user , :url => users_path do |f| %>
-    <p>
-      <%= f.label :name %><br>
-      <%=f.text_field :name %>
-    </p>
-    <p>
-      <%=f.label :password %> <br>
-      <%= f.password_field :password %>
-    </p>
-    <p>
 
-      <%= f.submit value="Sign in" %>
-    </p>
-<% end %>
 
-<h3>New to Flicker</h3>
-<%= link_to 'Sign up', new_user_path %><br>
+<h3>New User</h3>
+<p><%= link_to 'Sign up', new_user_path %></p><br>
+<p><%= link_to 'Sign in', new_session_path %></p>
 </body>
 
 

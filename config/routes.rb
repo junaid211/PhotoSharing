@@ -1,16 +1,26 @@
 MyFlickr::Application.routes.draw do
-  get "sessions/login,"
-
-  get "sessions/home,"
-
-  get "sessions/profile,"
-
-  get "sessions/setting"
 
   # get "users/welcome"
 
   # get "users/index"
   resources :users
+  resources :sessions do
+    post :login_attempt , :on => :collection
+    post :logout , :on => :collection
+  end
+
+  resources :groups do
+    collection do
+      post :list
+      get :user_groups
+    end
+    member do
+      get :add_user
+    end
+  end
+  resources :images
+
+
 
 
   # The priority is based upon order of creation:
