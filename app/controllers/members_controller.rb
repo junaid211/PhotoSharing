@@ -3,7 +3,7 @@ class MembersController < ApplicationController
   def index
   end
   def new
-     redirect_to root_path, :notice=> "You already been member of this group" if(  Membership.includes(params[:groups][:user_id]))
+     #redirect_to root_path, :notice=> "You already been member of this group" if(  Membership.includes(params[:groups][:user_id]))
      @members=Membership.new
   end
   def create

@@ -13,6 +13,7 @@
           </table>
           <%#= button_to 'Add People ' , list_groups_path%>
           <%#= link_to 'Search people' , search_users_path %>
+          <h3>Add users to this group</h3>
           <%= form_for :groups , :url => search_users_path, :method=>"get" do |f|%>
 
               <%= f.text_field :name  %><br>
