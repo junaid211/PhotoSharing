@@ -17,14 +17,10 @@ class ApplicationController < ActionController::Base
       return true
     end
   end
-  def authorized_user
-
-  end
 
   def current_user
     @current_user ||= User.find session[:user_id] if session[:user_id]
   end
-
   helper_method :current_user
   def set_no_cache
     response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"

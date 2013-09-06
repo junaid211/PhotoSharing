@@ -1,13 +1,38 @@
-<%= current_user.name %>
-
+<div>
 <% if @groups.blank? %>
     <p>You have created no groups so far.</p>
 <% else %>
     <p>These are the groups you have created</p>
-    <ul id="groups">
+    <ul>
       <% @groups.each do |c| %>
-          <li><%= c.group_name -%></li>
-          <p><%= button_to 'Add People ' , list_groups_path%></p>
+          <table>
+            <tr>
+          <td><%= image_tag('group1.jpg',size: "32x32")%></td>
+          <td><p class=small_font><%= c.group_name  -%></p></td>
+            </tr>
+          </table>
+          <%#= button_to 'Add People ' , list_groups_path%>
+          <%#= link_to 'Search people' , search_users_path %>
+          <%= form_for :groups , :url => search_users_path, :method=>"get" do |f|%>
+
+              <%= f.text_field :name  %><br>
+              <%= f.hidden_field :id , :value => c.id %>
+
+              <%= f.hidden_field  :group_name, :value => c.group_name  %>
+
+              <%= f.submit value = "Add People" ,:class=>"button_blue" %>
+
+          <% end %>
+          <%= form_for :members , :url => member_members_path do |f|%>
+
+              <%= f.hidden_field :group_name , :value => c.group_name %>
+              <%= f.submit value = "ViewPeople" ,:class=>"button_blue" %>
+            <br><br>
+          <% end %>
+
+
+
       <% end %>
     </ul>
 <% end %>
+</div>

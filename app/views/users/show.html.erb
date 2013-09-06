@@ -1,34 +1,100 @@
-<h4>Welcome to Creative Photo Sharing</h4>
-<%= current_user.name %>
 
-<h3>Upload/Change your Profile Image</h3>
-<div style="float:right">
-<p><%= button_to 'log out' ,{:controller=>"sessions", :action=>"logout"}%></p>
-</div>
-<div id="content" style="height:200px;width:400px;float:left;">
-  <%= image_tag current_user.image_url(:thumb).to_s if current_user %>
-</div>
 
-<%= form_for @user, :html => {:multipart => true} do |f| %>
-<p>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-</p>
-<p>
-  <%= f.file_field :image %>
-</p>
-<p>
-  <%= f.submit value='upload'%>
-</p>
+
+<%#= button_to 'log out' ,{:controller=>"sessions", :action=>"logout"}%>
+
+<div style="float: right"><p class=names_link><%= link_to 'Edit profile' , change_profile_user_path%></p></div>
+
+<div class=side_bar>
+  <h3>Welcome to Creative Photo Sharing</h3>
+
+  <%= link_to 'Create group', new_group_path %> &nbsp&nbsp
+  <%= link_to 'View Groups' , user_groups_groups_path %>  &nbsp&nbsp
+  <%= link_to 'Upload Photos' , new_image_path %>
+  <!--<h5>Upload/Change your Profile Image</h5>
+  <<div id="menu_profile">
+<div id="content" style="height:105px;width:100px;float:inherit;">
+  <%#= image_tag current_user.image_url(:thumb).to_s if current_user %>
+</div>
+</div> -->
+<%#= form_for @user, :html => {:multipart => true} do |f| %>
+    <%#= f.file_field :image%>
+    <%#= f.submit value='upload'%>
+<%# end %>
+
+
+
+<% if @show_group.blank? %>
+    <h5>You are not member of any group.</h5>
+<% else %>
+    <h5>Groups</h5>
+    <ul>
+      <% @show_group.each do |c| %>
+          <%#= c.group_name %>
+          <%= form_for :post , :url => new_post_path, :method=>"get" do |f| %>
+              <%= f.hidden_field :group_id , :value => c.group_id %>
+              <%#= image_tag('group1.jpg',size: "32x32")%>
+              <%= f.submit value=c.group_name ,:class => "button_blue_groups"%>
+              <%#= link_to c.group_name, new_group_post_path, :onclick => "$('##{dom_id(@user)}').submit()" %>
+          <% end %>
+
+      <% end %>
+    </ul>
+
 <% end %>
+  <h5>Your Groups</h5>
+  <ul>
+    <% @groups_own.each do |c| %>
+        <%= form_for :post , :url => new_post_path, :method=>"get" do |f| %>
+            <%= f.hidden_field :group_id , :value => c.id %>
+            <%= f.submit value=c.group_name ,:class => "button_blue_groups"%>
+        <% end %>
+
+    <% end %>
+  </ul>
+
+</div>
+
+<div style="float:inherit">
+<% if @user_posts.blank? %>
+    <p>You have uploaded no images yet.</p>
+<% else %>
+    <div style="float:inherit">
+    <p>These are your uploaded images</p>
+
+    <div class="image-show">
+      <ul>
+        <% @user_posts.each do |c| %>
+            <div class=ridge>
+
+            <div id="menu_main">
+
+
+              <%=link_to (image_tag c.image_url(:thumb).to_s),c.image_url(:thumb).to_s,:rel=>"prettyPhoto[pp_gal]" if current_user %>
+              </div><br>
+            <%= link_to 'Delete', image_path(c.id),
+                        method: :delete, data: { confirm: 'Are you sure?' } %></div>
+
+            <br><br> <br><br>
+        <% end %>
+      </ul>
+      </div>
+    </div>
+<% end %></div>
+
+
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+        $("a[rel^='prettyPhoto']").prettyPhoto();
+    });
+</script>
+
+
 <!--<div id="content" style="height:200px;width:400px;float:left;">
-  <%= image_tag current_user.image_url(:thumb).to_s if current_user %>
+  <%#= image_tag current_user.image_url(:thumb).to_s if current_user %>
 </div>-->
- <p><div style="float:right">
-<p><%= link_to 'Create group', new_group_path %></p>  <br>
-<p><%= link_to 'View Groups' , user_groups_groups_path %> </p> <br>
-<p><%= link_to 'Upload Photos' , new_image_path %> </p>
-  </div></p>
+
 
 <%#= image_tag current_user.image.to_s if current_user %>
 

@@ -1,0 +1,13 @@
+<% if @members.blank? %>
+    <p>There are not any members currently in this group.</p>
+<% else %>
+    <p>These are the users which are enlisted in this group. </p>
+
+    <ul>
+    <% @members.each do |c| %>
+      <p class=small_font><%= c.user_name -%></p>
+
+
+    <% end %>
+    </ul>
+<% end %>

@@ -13,3 +13,19 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+
+
+
+$(document).ready(function(){
+   $('#imgSmile').width(200);
+      $('#imgSmile').mouseover(function()
+    	   {
+             $(this).css("cursor","pointer");
+           });
+     $("#imgSmile").toggle(function()
+           {$(this).animate({width: "500px"}, 'slow');},
+    	     function()
+        	     {$(this).animate({width: "200px"}, 'slow');
+        	   });
+   	});

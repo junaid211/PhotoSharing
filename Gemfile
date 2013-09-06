@@ -21,7 +21,13 @@ group :assets do
 end
 
 
+
+
 gem 'jquery-rails'
+gem 'prettyphoto-rails'
+gem 'jquery-zoom-rails'
+gem "rails-boilerplate"
+
 
 gem 'carrierwave'
 gem 'bcrypt-ruby', :require => 'bcrypt'

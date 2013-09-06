@@ -1,0 +1,27 @@
+
+<h3>Add this member to this group</h3>
+
+<%= form_for @members, :url => members_path do |f| %>
+
+    <p>
+        <%= f.hidden_field :group_name, :value => params[:groups][:group_name] %>
+    </p>
+    <p>
+
+      <%= f.hidden_field :group_id, :value => params[:groups][:group_id] %>
+    </p>
+    <p>
+      <%= f.hidden_field :user_id , :value => params[:groups][:user_id] %>
+    </p>
+    <p>
+      <%= f.hidden_field :user_name , :value => params[:groups][:user_name] %>
+    </p>
+    <p>
+      <%= f.hidden_field :current_user, :value => current_user.id %>
+    </p>
+
+    <p>
+      <%= f.submit :class=>"button_blue"%>
+    </p>
+<% end %>
+<p><%= link_to'back', users_path %></p>

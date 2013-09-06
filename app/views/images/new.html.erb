@@ -1,18 +1,17 @@
-<%= current_user.name %>
 <h3>
   New Image
 </h3>
 
 <%= form_for :image, :as => @image, :url => { :action => "create" }, :html => {:multipart => true} do |f| %>
     <p>
-      <%= f.file_field :image %>
+      <%= f.file_field :image,:class=>"button_blue" %>
     </p>
     <p>
       <%= f.hidden_field :user_id, :value => current_user.id %>
 
     </p>
     <p>
-      <%= f.submit value='upload'%>
+      <%= f.submit value='upload',:class=>"button_blue"%>
     </p>
 <% end %>
 <p>

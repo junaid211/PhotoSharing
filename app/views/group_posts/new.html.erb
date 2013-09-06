@@ -1,0 +1,31 @@
+
+
+<%= form_for :group_post, :url => group_posts_path do |f|%>
+
+    <p>
+      <%=f.hidden_field :group_id , :value => params[:group_post][:group_id]%> <br>
+
+    </p>
+
+    <p>
+      <%=f.label :caption %> <br>
+      <%=f.text_area :caption %>
+    </p>
+
+    <p>
+      <%= f.file_field :image %>
+    </p>
+    <p>
+      <%= f.submit %>
+
+    </p>
+
+
+
+
+
+
+
+
+
+<% end %>

@@ -10,14 +10,372 @@
  *
  *= require_self
  *= require_tree .
- require_self
- require_tree .
- require jquery.uploadify-v2.1.4/uploadify
 
-    require_self
-    require_tree .
+
     require jquery.uploadify-v2.1.4/uploadify
  */
+/*
+
+
+ */
+
+
+/***Style the unordered list with the class 'enlarge'***/
+/*body
+{
+    background-color:#C4C1BD;
+} */
+body
+{
+    background-image:url('bg2.jpg');
+    /*background-color: whitesmoke;*/
+
+
+}
+.glossy-reflection .image-wrap {
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.6);
+    -moz-box-shadow: inset 0 -1px 0 rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.6);
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.6);
+
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    transition: 1s;
+
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.glossy-reflection .image-wrap:before {
+    position: absolute;
+    content: ' ';
+    width: 100%;
+    height: 50%;
+    top: 0;
+    left: 0;
+
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+
+    background: -moz-linear-gradient(top, rgba(255,255,255,0.7) 0%, rgba(255,255,255,.1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.7)), color-stop(100%,rgba(255,255,255,.1)));
+    background: linear-gradient(top, rgba(255,255,255,0.7) 0%,rgba(255,255,255,.1) 100%);
+}
+
+.glossy-reflection .image-wrap:after {
+    position: absolute;
+    content: ' ';
+    width: 100%;
+    height: 30px;
+    bottom: -31px;
+    left: 0;
+
+    -webkit-border-top-left-radius: 20px;
+    -webkit-border-top-right-radius: 20px;
+    -moz-border-radius-topleft: 20px;
+    -moz-border-radius-topright: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+    background: -moz-linear-gradient(top, rgba(230,230,230,.3) 0%, rgba(230,230,230,0) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(230,230,230,.3)), color-stop(100%,rgba(230,230,230,0)));
+    background: linear-gradient(top, rgba(230,230,230,.3) 0%,rgba(230,230,230,0) 100%);
+}
+
+.side_bar{
+    float:left;
+    background-color:snow;
+    width:200px; height:800px;
+
+}
+.button_blue{
+    border:1px solid #7d99ca; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;font-size:12px;font-family:arial, helvetica, sans-serif; padding: 10px 10px 10px 10px; text-decoration:none; display:inline-block;text-shadow: -1px -1px 0 rgba(0,0,0,0.3);font-weight:bold; color: #FFFFFF;
+    background-color: #a5b8da; background-image: -webkit-gradient(linear, left top, left bottom, from(#a5b8da), to(#7089b3));
+    background-image: -webkit-linear-gradient(top, #a5b8da, #7089b3);
+    background-image: -moz-linear-gradient(top, #a5b8da, #7089b3);
+    background-image: -ms-linear-gradient(top, #a5b8da, #7089b3);
+    background-image: -o-linear-gradient(top, #a5b8da, #7089b3);
+    background-image: linear-gradient(to bottom, #a5b8da, #7089b3);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#a5b8da, endColorstr=#7089b3);
+
+}
+.button_blue_groups{
+    border:1px solid #7d99ca; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;font-size:12px;font-family:arial, helvetica, sans-serif; padding: 10px 10px 10px 10px; text-decoration:none; display:inline-block;text-shadow: -1px -1px 0 rgba(0,0,0,0.3);font-weight:bold; color: #FFFFFF;
+    background-color: #a5b8da; background-image: -webkit-gradient(linear, left top, left bottom, from(#a5b8da), to(#7089b3));
+    background-image: -webkit-linear-gradient(top, #a5b8da, #7089b3);
+    background-image: -moz-linear-gradient(top, #a5b8da, #7089b3);
+    background-image: -ms-linear-gradient(top, #a5b8da, #7089b3);
+    background-image: -o-linear-gradient(top, #a5b8da, #7089b3);
+    background-image: linear-gradient(to bottom, #a5b8da, #7089b3);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#a5b8da, endColorstr=#7089b3);
+    width: 60%;
+}
+.button_blue_groups:hover{
+    border:1px solid #5d7fbc;
+    background-color: #819bcb; background-image: -webkit-gradient(linear, left top, left bottom, from(#819bcb), to(#536f9d));
+    background-image: -webkit-linear-gradient(top, #819bcb, #536f9d);
+    background-image: -moz-linear-gradient(top, #819bcb, #536f9d);
+    background-image: -ms-linear-gradient(top, #819bcb, #536f9d);
+    background-image: -o-linear-gradient(top, #819bcb, #536f9d);
+    background-image: linear-gradient(to bottom, #819bcb, #536f9d);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#819bcb, endColorstr=#536f9d);
+}
+
+.button_blue:hover{
+    border:1px solid #5d7fbc;
+    background-color: #819bcb; background-image: -webkit-gradient(linear, left top, left bottom, from(#819bcb), to(#536f9d));
+    background-image: -webkit-linear-gradient(top, #819bcb, #536f9d);
+    background-image: -moz-linear-gradient(top, #819bcb, #536f9d);
+    background-image: -ms-linear-gradient(top, #819bcb, #536f9d);
+    background-image: -o-linear-gradient(top, #819bcb, #536f9d);
+    background-image: linear-gradient(to bottom, #819bcb, #536f9d);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#819bcb, endColorstr=#536f9d);
+}
+
+.button_example{
+    border:1px solid #a0a0f2; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;font-size:12px;font-family:arial, helvetica, sans-serif; padding: 10px 10px 10px 10px; text-decoration:none; display:inline-block;text-shadow: -1px -1px 0 rgba(0,0,0,0.3);font-weight:bold; color: #FFFFFF;
+    background-color: #d2d2f9; background-image: -webkit-gradient(linear, left top, left bottom, from(#d2d2f9), to(#a6a6f2));
+    background-image: -webkit-linear-gradient(top, #d2d2f9, #a6a6f2);
+    background-image: -moz-linear-gradient(top, #d2d2f9, #a6a6f2);
+    background-image: -ms-linear-gradient(top, #d2d2f9, #a6a6f2);
+    background-image: -o-linear-gradient(top, #d2d2f9, #a6a6f2);
+    background-image: linear-gradient(to bottom, #d2d2f9, #a6a6f2);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#d2d2f9, endColorstr=#a6a6f2);
+}
+
+.button_example:hover{
+    border:1px solid #7878ed;
+    background-color: #a5a5f3; background-image: -webkit-gradient(linear, left top, left bottom, from(#a5a5f3), to(#7a7aeb));
+    background-image: -webkit-linear-gradient(top, #a5a5f3, #7a7aeb);
+    background-image: -moz-linear-gradient(top, #a5a5f3, #7a7aeb);
+    background-image: -ms-linear-gradient(top, #a5a5f3, #7a7aeb);
+    background-image: -o-linear-gradient(top, #a5a5f3, #7a7aeb);
+    background-image: linear-gradient(to bottom, #a5a5f3, #7a7aeb);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#a5a5f3, endColorstr=#7a7aeb);
+}
+.polaroid {
+    position: relative;
+    width: 220px;
+}
+@keyframes cf3FadeInOut {
+    0% {
+        opacity:1;
+    }
+    45% {
+        opacity:1;
+    }
+    55% {
+        opacity:0;
+    }
+    100% {
+        opacity:0;
+    }
+}
+
+#cf3 img.top {
+    animation-name: cf3FadeInOut;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+    animation-direction: alternate;
+}
+.post a img {
+
+    /* This centers the image */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    /* This adds the border */
+    padding:8px;
+    border:solid;
+    border-color: #dddddd #aaaaaa #aaaaaa #dddddd;
+    border-width: 1px 2px 2px 1px;
+    background-color:white;
+}
+.shadow {
+    background-image: url(shadow.jpg);
+    padding: 10px;
+}
+.ridge {
+    border-top-width: 4px;
+    border-bottom-width: 4px;
+    border-top-style: double;
+    border-bottom-style: double;
+    border-top-color: #E1A60A;
+    border-bottom-color: #E1A60A;
+    padding: 8px 0px;
+}
+.vignette {
+    background: url("http://lorempixum.com/400/200/nature/5");
+    width: 200px; height: 400px;
+    -webkit-box-shadow:
+        inset 0 0 50px #000,
+        inset 0 0 50px #000,
+        inset 0 0 50px #000;
+
+    -moz-box-shadow:
+        inset 0 0 50px #000,
+        inset 0 0 50px #000,
+        inset 0 0 50px #000;
+
+    box-shadow:
+        inset 0 0 50px #000,
+        inset 0 0 50px #000,
+        inset 0 0 50px #000;
+}
+.multiple-borders {
+    -webkit-box-shadow:
+        0px 0px 0px 2px rgba(0,0,0,0.6),
+        0px 0px 0px 14px #fff,
+        0px 0px 0px 18px rgba(0,0,0,0.2),
+        6px 6px 8px 17px #555;
+
+    -moz-box-shadow:
+        0px 0px 0px 2px rgba(0,0,0,0.6),
+        0px 0px 0px 14px #fff,
+        0px 0px 0px 18px rgba(0,0,0,0.2),
+        6px 6px 8px 17px #555;
+
+    box-shadow:
+        0px 0px 0px 2px rgba(0,0,0,0.6),
+        0px 0px 0px 14px #fff,
+        0px 0px 0px 18px rgba(0,0,0,0.2),
+        6px 6px 8px 17px #555;
+}
+
+
+.polaroid img {
+    border: 10px solid #fff;
+    border-bottom: 45px solid #fff;
+    -webkit-box-shadow: 3px 3px 3px #777;
+    -moz-box-shadow: 3px 3px 3px #777;
+    box-shadow: 3px 3px 3px #777;
+}
+
+.polaroid p {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    bottom: 0px;
+    font: 400 18px/1 'Kaushan Script', cursive;
+    color: #888;
+}
+
+div.ex
+{
+    width:120px;
+    padding:10px;
+    border:5px solid skyblue;
+    margin:0px;
+}
+@font-face
+{
+    font-family: myFirstFont;
+    src: url(sansation_light.woff);
+}
+
+div
+{
+    font-family:myFirstFont;
+}
+
+
+
+#menu {
+    max-width: 1200px;
+    text-align: center;
+    margin: auto;
+}
+
+#menu img {
+    width: 250px;
+    height: 250px;
+    padding: 0px 5px 0px 5px;
+    overflow: hidden;
+
+}
+#menu_profile img {
+    width: 100px;
+    height: 100px;
+    padding: 0px 5px 0px 5px;
+    overflow: hidden;
+
+}
+#menu_main img {
+    width: 320px;
+    height: 320px;
+    padding: 0px 5px 0px 5px;
+    overflow: hidden;
+
+}
+#menu_profile_m img {
+
+    width: 40px;
+    height: 40px;
+    margin-top: -9px;
+    overflow: hidden;
+}
+.img_bor {
+    padding:0.5px;
+    border:0.5px solid #021a40;
+}
+.blog {
+    height: 375px;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.blog:hover {
+    cursor: pointer;
+    height:475px;
+    width: 350px;
+    transform:scale(1.5);
+    -ms-transform:scale(1.5); /* IE 9 */
+    -moz-transform:scale(1.5); /* Firefox */
+    -webkit-transform:scale(1.5); /* Safari and Chrome */
+    -o-transform:scale(1.5); /* Opera */
+}
+ul.enlarge{
+    list-style-type:none; /*remove the bullet point*/
+}
+ul.enlarge li{
+    display:inline-block; /*places the images in a line*/
+    position: relative; /*allows precise positioning of the popup image when used with position:absolute - see support section */
+    z-index: 0; /*resets the stack order of the list items - we'll increase in step 4. See support section for more info*/
+    margin:10px 40px 0 20px; /*space between the images*/
+}
+ul.enlarge span{
+    position:absolute; /*see support section for more info on positioning*/
+    left: -9999px; /*moves the span off the page, effectively hidding it from view*/
+}
+ul.enlarge img{
+    /*give the thumbnails a frame*/
+    background-color:#eae9d4; /*frame colour*/
+    padding: 6px; /*frame size*/
+    /*add a drop shadow to the frame*/
+    -webkit-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+    -moz-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+    box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+    /*and give the corners a small curve*/
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+ul.enlarge li:hover{
+    z-index: 50; /*places the popups infront of the thumbnails, which we gave a z-index of 0 in step 1*/
+    cursor:pointer; /*changes the cursor to a hand*/
+}
+/***We bring the large image back onto the page by reducing left from -9999px (set in step 2) to figures below***/
+ul.enlarge li:hover span{ /*positions the <span> when the <li> (which contains the thumbnail) is hovered*/
+    top: -300px; /*the distance from the bottom of the thumbnail to the top of the popup image*/
+    left: -20px; /*distance from the left of the thumbnail to the left of the popup image*/
+}
+/***To make it look neater we used :nth-child to set a different left distance for each image***/
+ul.enlarge li:hover:nth-child(2) span{
+    left: -100px;
+}
+ul.enlarge li:hover:nth-child(3) span{
+    left: -200px;
+}
 .submit {
     background-color: #ccc;
     -moz-border-radius: 5px;
@@ -39,20 +397,52 @@
     box-shadow: 0px 0px 1px #777;
 
 }
-
-body
-{
-    background-color:#b0c4de;
+.button_example_red{
+    border:1px solid #ff6262; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;font-size:12px;font-family:arial, helvetica, sans-serif; padding: 10px 10px 10px 10px; text-decoration:none; display:inline-block;text-shadow: -1px -1px 0 rgba(0,0,0,0.3);font-weight:bold; color: #FFFFFF;
+    background-color: #ff9a9a; background-image: -webkit-gradient(linear, left top, left bottom, from(#ff9a9a), to(#ff4040));
+    background-image: -webkit-linear-gradient(top, #ff9a9a, #ff4040);
+    background-image: -moz-linear-gradient(top, #ff9a9a, #ff4040);
+    background-image: -ms-linear-gradient(top, #ff9a9a, #ff4040);
+    background-image: -o-linear-gradient(top, #ff9a9a, #ff4040);
+    background-image: linear-gradient(to bottom, #ff9a9a, #ff4040);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ff9a9a, endColorstr=#ff4040);
 }
+
+.button_example_red:hover{
+    border:1px solid #ff3434;
+    background-color: #ff6767; background-image: -webkit-gradient(linear, left top, left bottom, from(#ff6767), to(#ff0d0d));
+    background-image: -webkit-linear-gradient(top, #ff6767, #ff0d0d);
+    background-image: -moz-linear-gradient(top, #ff6767, #ff0d0d);
+    background-image: -ms-linear-gradient(top, #ff6767, #ff0d0d);
+    background-image: -o-linear-gradient(top, #ff6767, #ff0d0d);
+    background-image: linear-gradient(to bottom, #ff6767, #ff0d0d);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ff6767, endColorstr=#ff0d0d);
+}
+
+
 
 h2
 {
-    text-shadow:5px 5px 10px black;
+
+    color: #7878ed;
+    font-family:Zapf Chancery, cursive;
 }
 h3
 {
-    text-shadow:5px 5px 10px black;
+
+    color: #7878ed;
+    font-family:Zapf Chancery, cursive;
 }
+h4
+{
+
+    font-family:Zapf Chancery, cursive;
+}
+h5
+{
+
+    color: #7878ed;
+    font-family:Zapf Chancery, cursive;
+}
+
 p
 {
     margin-top:50px;
@@ -60,12 +450,38 @@ p
     margin-right:50px;
     margin-left:50px;
     font-family:Arial,Helvetica,sans-serif;
+    font-family:Zapf Chancery, cursive;
+    color: #7878ed;
+
 }
-#linkk
+.small_font
 {
-    margin-right:50px;
-    margin-left:50px;
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-right:10px;
+    margin-left:10px;
     font-family:Arial,Helvetica,sans-serif;
+    font-family:Zapf Chancery, cursive;
+    color: palevioletred;
+
+}
+.names{
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-right:10px;
+    margin-left:10px;
+    font-family:Arial,Helvetica,sans-serif;
+    font-family:Zapf Chancery, cursive;
+    color: #7a7aeb;
+}
+.names_link{
+    margin-top:0px;
+    margin-bottom:5px;
+    margin-right:5px;
+    margin-left:5px;
+    font-family:Arial,Helvetica,sans-serif;
+    font-family:Zapf Chancery, cursive;
+    color: #7a7aeb;
 }
 ul
 {
@@ -131,6 +547,20 @@ ul
     -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
     box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
     text-shadow: 2px 2px 3px #FFFFFF;
+
+}
+#menu-bar .active_1 a, #menu-bar li:hover > a {
+    background: #0399D4;
+    background: linear-gradient(top,  #EBEBEB,  #A1A1A1);
+    background: -ms-linear-gradient(top,  #EBEBEB,  #A1A1A1);
+    background: -webkit-gradient(linear, left top, left bottom, from(#EBEBEB), to(#A1A1A1));
+    background: -moz-linear-gradient(top,  #EBEBEB,  #A1A1A1);
+    color: #0099FF;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+    text-shadow: 2px 2px 3px #FFFFFF;
+
 }
 #menu-bar ul li:hover a, #menu-bar li:hover li a {
     background: none;
@@ -230,4 +660,25 @@ html[xmlns] #menu-bar {
 .enlarge:hover {
     transform:scale(2,2);
     transform-origin:0 0;
+}
+.image-show ul {
+
+    list-style: none;
+    float: left;
+}
+.image-show ul li{
+    height: 250px;
+    margin-left: 30px;
+}
+.sign_form{
+    text-align: center;
+    margin:auto;
+    margin-top:10px;
+    width:500px;
+    background-color: rgba(1, 1, 1, .2);
+    padding-bottom:20px;
+    padding-top:2px;
+    border-radius: 18px;
+    box-shadow: 5px 5px 5px #888888;
+
 }

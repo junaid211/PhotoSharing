@@ -1,17 +1,14 @@
-<%= current_user.name %>
-<h3>Create Group</h3>
 
+<h3>Create Group</h3>
+<p>
 <%= form_for @group ,:url => groups_path do |f| %>
-    <p>
+    <p class=small_font> <%= @group.errors.full_messages.to_sentence if @group.errors.any? %></p>
+
       <%= f.label :name %>
       <%= f.text_field :group_name %>
-    </p>
-    <p>
       <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.submit  :class => "button_blue" %>
 
-    </p>
-    <p>
-      <%= f.submit%>
-    </p>
 <% end %>
+</p>
 <p><%= link_to'back', users_path %></p>

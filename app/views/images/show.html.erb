@@ -1,4 +1,4 @@
-<%= current_user.name %>
+
 <div style="float:right">
   <p><%= button_to 'Homepage' , users_path%></p>
 </div>
@@ -7,12 +7,25 @@
     <p>You have uploaded no images yet.</p>
 <% else %>
     <p>These are your uploaded images</p>
-    <ul id="images">
-      <% @images.each do |c| %>
-          <li><%= c.image -%></li>
+    <div class="image-show">
+        <ul>
+          <% @images.each do |c| %>
 
-          <p><%=image_tag  c.image_url(:thumb).to_s if current_user %></p>
-      <% end %>
-    </ul>
+              <div id="menu">
+
+              <li><%=link_to (image_tag c.image_url(:thumb).to_s ,:class=>"blog"),c.image_url(:thumb).to_s,:rel=>"prettyPhoto[pp_gal]" if current_user %></li>
+              </div> <br>
+              <%= link_to 'Delete', image_path(c.id),
+                          method: :delete, data: { confirm: 'Are you sure?' } %>
+
+          <br><br>
+          <% end %>
+        </ul>
+    </div>
 <% end %>
 
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+        $("a[rel^='prettyPhoto']").prettyPhoto();
+    });
+</script>

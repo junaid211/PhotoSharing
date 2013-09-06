@@ -1,0 +1,57 @@
+<% if @show_post.blank? %>
+    <p>No Recent Posts.</p>
+<% else %>
+    <p>Recent Posts</p>
+    <div class=image-show>
+      <ul>
+        <% @show_post.each do |c| %>
+            <%= form_for :post , :url => posts_path, :method=>"get" do |f| %>
+                <%= f.hidden_field :group_id , :value => c.group_id %>
+                <div class=ex><p class=names><%= c.user_name %></p></div>
+                <p class=small_font><%= c.caption %></p>
+                <div id="menu">
+                  <%=link_to (image_tag c.image_url(:thumb).to_s ),c.image_url(:thumb).to_s,:rel=>"prettyPhoto[pp_gal]" %>
+                </div>
+                <%= link_to 'Delete', post_path(c.id),
+                            method: :delete, data: { confirm: 'Are you sure?' } %>
+
+                <br><br><br><br><br>
+                <%#= f.submit value="Proceed without uploading" %>
+                <%#= link_to c.group_name, new_group_post_path, :onclick => "$('##{dom_id(@user)}').submit()" %>
+            <% end %>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<!--<%# if @post.blank? %>
+
+<%# else %>
+    <p>Recent Posts</p>
+    <div class="image-show">
+      <ul>
+        <%# @post.each do |c| %>
+            <li><%#= c.user_name %></li>
+            <li><%#= c.caption %></li>
+
+
+            <div id="menu">
+
+              <li><%#=link_to (image_tag c.image_url(:thumb).to_s ,:class=>"blog"),c.image_url(:thumb).to_s,:rel=>"prettyPhoto[pp_gal]" %></li>
+            </div>
+            <%#= link_to 'Delete', post_path(c.id),
+                        method: :delete, data: { confirm: 'Are you sure?' } %>
+
+            <br><br>
+        <%# end %>
+      </ul>
+    </div>
+<%# end %>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+        $("a[rel^='prettyPhoto']").prettyPhoto();
+    });
+</script>-->
+<!--<p>Post added</p>
+<p class=small_font><%#= link_to 'back',new_post_path %></p>-->

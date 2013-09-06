@@ -3,7 +3,17 @@ MyFlickr::Application.routes.draw do
   # get "users/welcome"
 
   # get "users/index"
-  resources :users
+  resources :users do
+    collection do
+     get :show_groups
+     get :search
+    end
+    member do
+     get :change_profile
+    end
+    #get :show_groups, :on => :collection
+    #post :change_profile, :on => :member
+  end
   resources :sessions do
     post :login_attempt , :on => :collection
     post :logout , :on => :collection
@@ -19,6 +29,17 @@ MyFlickr::Application.routes.draw do
     end
   end
   resources :images
+  resources :members do
+    post :member, :on => :collection
+  end
+
+  #resources :posts
+  resources :posts do
+    resources :comments
+    get :show_posts , :on => :collection
+
+  end
+
 
 
 

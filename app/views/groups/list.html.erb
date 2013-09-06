@@ -1,4 +1,10 @@
-<%= current_user.name %>
+<%#= form_for @users , :url => list_groups_path ,:method => 'get' do |f|%>
+
+      <%#= f.text_field :user_name , :value=> params[:name] %>
+      <%#= f.submit value="find"%>
+
+<%# end %>
+
 
 <% if @users.blank? %>
     <p>There are not any users currently in the system.</p>
@@ -6,8 +12,18 @@
     <p>These are the current users you can add </p>
     <ul id="users">
       <% @users.each do |c| %>
-          <li><%= link_to c.name -%></li>
-          <%= link_to "Add", add_user_group_path(c) , :remote => true %>
+          <p class=small_font><%= c.name -%> </p>
+
+          <%#= link_to "Add", add_user_group_path(c) , :remote => true %>
+          <%= form_for :groups ,:url=> new_member_path,:method => "get" do |f| %>
+                <%#= f.text_field :user_name ,:value => c.name %>
+                <%= f.hidden_field :group_name , :value => params[:groups][:group_name] %>
+                <%= f.hidden_field :group_id , :value => params[:groups][:id] %>
+                <%= f.hidden_field :user_id , :value => c.id %>
+                <%= f.hidden_field :user_name , :value => c.name %>
+                <%= f.submit value='Add this user to group',:class=>"button_blue" %>
+          <% end %>
+          <%#= link_to 'Add', new_member_path %>
       <% end %>
     </ul>
 <% end %>

@@ -1,4 +1,7 @@
- <%= form_for :users, :url => login_attempt_sessions_path  do |f| %>
+<div class="sign_form">
+<h3>Sign in !</h3>
+ <%= form_for :users ,:url => login_attempt_sessions_path  do |f| %>
+
  <p>
       <%= f.label :email %><br>
       <%=f.text_field :email %>
@@ -9,7 +12,9 @@
     </p>
     <p>
 
-      <%= f.submit value="Sign in" %>
+      <%= f.submit value="Sign in" ,:class=>"button_blue" %>
     </p>
 <% end %>
+
 <p><%= link_to 'home page', root_path %></p>
+</div>
