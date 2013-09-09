@@ -8,6 +8,7 @@ gem 'sqlite3'
 
 gem 'json'
 
+gem "mysql2"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -48,3 +49,4 @@ gem 'rmagick'
 
 # To use debugger
 # gem 'ruby-debug'
+gem 'rvm-capistrano'

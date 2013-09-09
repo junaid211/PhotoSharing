@@ -26,5 +26,10 @@ class GroupsController < ApplicationController
   def add_user
     @add_user = User.find(params[:id])
   end
+  def destroy
+    @group = Group.find(params[:id])
+    @group.destroy
+    redirect_to user_groups_groups_path
+  end
 
 end

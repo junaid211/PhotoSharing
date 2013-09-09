@@ -1,0 +1,21 @@
+<div class = "sign_form">
+  <%= form_for [@post, @comment] do |f| %>
+    <p class=small_font><%#= @comment.errors.full_messages.to_sentence if @comment.errors.any? %><br></p>
+
+  <p>
+  <%= f.label :commenter %><br>
+  <%=f.text_field :commenter %>
+  </p>
+  <p>
+  <%= f.label :body %> <br>
+  <%= f.text_field :body %>
+  </p>
+
+
+
+
+  <p>
+  <%= f.submit :class=>"button_blue" %>
+  </p>
+<% end %>
+</div>

@@ -5,6 +5,7 @@
       <%=f.text_area :caption, :rows => 2, :cols => 50  %>
       <%=f.hidden_field :group_id , :value => params[:post][:group_id]%>
       <%=f.hidden_field :user_name , :value => current_user.name%> <br>
+
       <%=f.file_field :image  %> <br>
       <%=f.submit%></p>
 
@@ -25,6 +26,15 @@
               </div>
               <%= link_to 'Delete', post_path(c.id),
                           method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to 'comment', [:new, c, :comment] %>
+              <%#= link_to 'comment', new_post_comment_path(c) %>
+              <%#= link_to 'show comments', [ c, :comments]  %>
+              <br>
+              <% c.comments.each do |comment| %>
+                  <ul>
+                  <li><%= comment.body %></li>
+                  </ul>
+              <% end %>
 
               <br><br><br><br><br>
               <%#= f.submit value="Proceed without uploading" %>
@@ -34,6 +44,7 @@
     </ul>
     </div>
 <% end %>
+
 
 <!--<%#= form_for @post , :url =>  show_posts_posts_path do |f|%>
     <p>

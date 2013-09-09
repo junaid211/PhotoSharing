@@ -26,6 +26,7 @@ MyFlickr::Application.routes.draw do
     end
     member do
       get :add_user
+
     end
   end
   resources :images
@@ -37,8 +38,10 @@ MyFlickr::Application.routes.draw do
   resources :posts do
     resources :comments
     get :show_posts , :on => :collection
-
   end
+  resources :comments
+
+
 
 
 

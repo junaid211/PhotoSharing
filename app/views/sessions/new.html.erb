@@ -1,6 +1,7 @@
 <div class="sign_form">
 <h3>Sign in !</h3>
  <%= form_for :users ,:url => login_attempt_sessions_path  do |f| %>
+      <%#= :sessions.errors.full_messages.to_sentence if :sessions.errors.any? %>
 
  <p>
       <%= f.label :email %><br>

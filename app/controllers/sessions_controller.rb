@@ -8,7 +8,7 @@ before_filter :authenticate_user, :except => [:index, :new,:login_attempt, :logo
 
   def login_attempt
     authorized_user = User.authenticate(params[:users][:email],params[:users][:password])
-    7.times { |i| logger.debug "*****#{ authorized_user.inspect if i == 4 }*****" }
+    #7.times { |i| logger.debug "*****#{ authorized_user.inspect if i == 4 }*****" }
     if authorized_user
       session[:user_id] = authorized_user.id
       redirect_to current_user, :notice => "Wow Welcome again, you logged in as #{authorized_user.name}"
